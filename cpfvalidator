@@ -1,0 +1,70 @@
+#validar CPF
+
+print("Informe o CPF:")
+cpf = input()
+#limpar cpf
+cpf = cpf.replace("-","")
+cpf = cpf.replace(".","")
+cpf = cpf.rstrip()
+cpf = '00000000000' + cpf
+cpf = cpf[-11:]
+print(cpf)
+
+#verificar digitos repetidos
+a0 = int(cpf[0])
+b0 = int(cpf[1])
+c0 = int(cpf[2])
+d0 = int(cpf[3])
+e0 = int(cpf[4])
+f0 = int(cpf[5])
+g0 = int(cpf[6])
+h0 = int(cpf[7])
+i0 = int(cpf[8])
+j0 = int(cpf[9])
+k0 = int(cpf[10])
+
+#verificar primeiro digito
+a1 = int(cpf[0])*10
+b1 = int(cpf[1])*9
+c1 = int(cpf[2])*8
+d1 = int(cpf[3])*7
+e1 = int(cpf[4])*6
+f1 = int(cpf[5])*5
+g1 = int(cpf[6])*4
+h1 = int(cpf[7])*3
+i1 = int(cpf[8])*2
+j1 = int(cpf[9])
+k1 = int(cpf[10])
+s1 = a1 + b1 + c1 + d1 + e1 + f1 + g1 + h1 + i1
+num11 = s1*10
+num12 = 11
+resto1 = num11 % num12
+if (resto1 == 10 or resto1 == 11):
+    resto1 = 0
+
+#verificar segundo digito
+a2 = int(cpf[0])*11
+b2 = int(cpf[1])*10
+c2 = int(cpf[2])*9
+d2 = int(cpf[3])*8
+e2 = int(cpf[4])*7
+f2 = int(cpf[5])*6
+g2 = int(cpf[6])*5
+h2 = int(cpf[7])*4
+i2 = int(cpf[8])*3
+j2 = int(cpf[9])*2
+k2 = int(cpf[10])
+s2 = a2 + b2 + c2 + d2 + e2 + f2 + g2 + h2 + i2 + j2
+num21 = s2*10
+num22 = 11
+resto2 = num21 % num22
+if (resto2 == 10 or resto1 == 11):
+    resto2 = 0
+    
+#validação
+if (a0 == b0) and (b0 == c0) and (c0 == d0) and (d0 == e0) and (e0 == f0) and (f0 == g0) and (g0 == h0) and (h0 == j0) and (j0 == k0):
+    print("O CPF é falso ou incorreto")
+elif (j1 == resto1) and (k1 == resto2):
+    print("O CPF é verdadeiro")
+else:
+    print("O CPF é falso ou incorreto")
